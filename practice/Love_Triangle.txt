@@ -1,0 +1,49 @@
+'''
+Created by Archita Mittal
+Question doesn't contain anything concerned to graphs.
+We have to check a loop of three people.
+1->2->3->1 then YES
+storing in array the likes of everyone.
+let's take ith person, then we need to check if
+second=like[i] ith like (1->2)
+third=like[second] second's like (2->3)
+if like[third] == i then YES else NO
+check this condition for every i.
+'''
+
+
+#include <iostream>
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    int n;
+    cin>>n;
+    int m[n+1];
+    for(int i=1;i<=n;i++)
+    {
+        int f;
+        cin>>f;
+        m[i]=f;
+    }
+    int f=0;
+    for(int i=1;i<=n;i++)
+    {
+        int first = m[i];
+        int second = m[first];
+        if(m[second]==i)
+        {
+            f=1;
+            break;
+        }
+    }
+    if(f==1)
+    {
+        cout<<"YES";
+    }else
+    {
+        cout<<"NO";
+    }
+}
